@@ -45,6 +45,7 @@ class Ball(Turtle):
 
     def reset_position(self):
         self.goto(0,0)
+        self.ball_speed = 0.1
         ball.bounce_x()
 
 
@@ -95,11 +96,6 @@ screen.onkey(right_paddle.go_down,"Down")
 screen.onkey(left_paddle.go_up,"w")
 screen.onkey(left_paddle.go_down,"s")
 
-
-
-
-
-
 game_on = True
 while game_on:
     time.sleep(ball.ball_speed)
@@ -121,7 +117,5 @@ while game_on:
     if ball.distance(right_paddle) < 40 and ball.xcor() > 320 or ball.distance(left_paddle) < 40 and ball.xcor() < -320:
         ball.bounce_x()
         ball.ball_speed *= 0.9
-
-
 
 screen.mainloop()
