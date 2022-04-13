@@ -27,6 +27,7 @@ class Ball(Turtle):
         super().__init__()
         self.shape("circle")
         self.color("White")
+        self.ball_speed = 0.1
         self.penup()
         self.x_move = 10
         self.y_move = 10
@@ -36,8 +37,15 @@ class Ball(Turtle):
         new_y = self.ycor() + self.y_move
         self.goto(new_x, new_y)
 
-    def bounce(self):
+    def bounce_y(self):
         self.y_move *= -1
+
+    def bounce_x(self):
+        self.x_move *= -1
+
+    def reset_position(self):
+        self.goto(0,0)
+        ball.bounce_x()
 
 
 class Scoreboard(Turtle):
@@ -69,7 +77,7 @@ class Scoreboard(Turtle):
 
 screen = Screen()
 
-screen.setup(width=600, height=600)
+screen.setup(width=800, height=600)
 screen.bgcolor("black")
 screen.title("Pong")
 screen.tracer(0)
@@ -79,6 +87,7 @@ right_paddle = Paddle((350, 0))
 left_paddle = Paddle((-350, 0))
 
 ball = Ball()
+scoreboard = Scoreboard()
 
 screen.listen()
 screen.onkey(right_paddle.go_up,"Up")
@@ -91,16 +100,27 @@ screen.onkey(left_paddle.go_down,"s")
 
 
 
-
 game_on = True
 while game_on:
-    time.sleep(0.1)
+    time.sleep(ball.ball_speed)
     screen.update()
     ball.move()
 
     if ball.ycor() > 280 or ball.ycor() < -280:
-        ball.bounce()
+        ball.bounce_y()
 
+
+    if ball.xcor() > 380:
+        ball.reset_position()
+        scoreboard.l_point()
+
+    if ball.xcor() < -380:
+        ball.reset_position()
+        scoreboard.r_point()
+
+    if ball.distance(right_paddle) < 40 and ball.xcor() > 320 or ball.distance(left_paddle) < 40 and ball.xcor() < -320:
+        ball.bounce_x()
+        ball.ball_speed *= 0.9
 
 
 
