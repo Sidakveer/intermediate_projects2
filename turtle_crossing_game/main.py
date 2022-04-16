@@ -10,11 +10,13 @@ screen.tracer(0)
 
 
 player1 = Player()
-screen.listen()
+# cars = CarManager()
 
+screen.listen()
 screen.onkey(player1.move, "Up")
 
 game_is_on = True
 while game_is_on:
-    time.sleep(0.1)
+    time.sleep(1)
     screen.update()
+    cars = CarManager()
