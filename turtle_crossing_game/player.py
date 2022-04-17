@@ -20,5 +20,4 @@ class Player(Turtle):
         self.forward(10)
 
     def finish(self):
-        if self.ycor() >= 280:
-            self.goto(STARTING_POSITION)
+        self.goto(STARTING_POSITION)
