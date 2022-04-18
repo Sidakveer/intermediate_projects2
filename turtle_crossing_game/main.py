@@ -25,7 +25,7 @@ while game_is_on:
     time.sleep(run_time)
     screen.update()
 
-    if player1.ycor() >= 290:
+    if player1.ycor() > 280:
         player1.finish()
         score.level_up()
         run_time *= 0.9
