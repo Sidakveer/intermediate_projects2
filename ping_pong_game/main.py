@@ -30,6 +30,9 @@ class Paddle(Turtle):
 
 
 class Ball(Turtle):
+    """create a ball class to create a ball that moves across the   
+    screen and bounces of the paddles and the walls.
+    """
 
     def __init__(self):
         super().__init__()
