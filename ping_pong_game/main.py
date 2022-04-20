@@ -3,6 +3,14 @@ import time
 
 
 class Paddle(Turtle):
+    """
+    This class creates a paddle which is used to play the game
+    and the user controls the paddle to hit the ball.
+    Attributes: uses the Turtle class of the turtle
+    module to import functionality
+    Methods: two methods are defined one is to go up and 
+    another one to go down
+    """
 
     def __init__(self, pos: tuple):
         super().__init__()
