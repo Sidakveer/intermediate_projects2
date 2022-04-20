@@ -30,7 +30,8 @@ class Paddle(Turtle):
 
 
 class Ball(Turtle):
-    """create a ball class to create a ball that moves across the   
+    """
+    create a ball class to create a ball that moves across the   
     screen and bounces of the paddles and the walls.
     """
 
