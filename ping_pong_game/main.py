@@ -62,6 +62,12 @@ class Ball(Turtle):
 
 class Scoreboard(Turtle):
 
+    """
+    Helps to dosplay the score of the each player on the left and 
+    right side and displays the message of game over when one of the 
+    player loses.
+    """
+
     def __init__(self):
         super().__init__()
         self.color("White")
