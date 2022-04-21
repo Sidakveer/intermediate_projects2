@@ -10,6 +10,7 @@ class Paddle(Turtle):
     module to import functionality
     Methods: two methods are defined one is to go up and 
     another one to go down
+    
     """
 
     def __init__(self, pos: tuple):
